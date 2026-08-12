@@ -1,0 +1,171 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Electronics",
+      "slug": "electronics",
+      "description": "Electronic gadgets and devices"
+    },
+    {
+      "id": 2,
+      "name": "Fashion",
+      "slug": "fashion",
+      "description": "Clothing and accessories"
+    },
+    {
+      "id": 3,
+      "name": "Home & Kitchen",
+      "slug": "home-kitchen",
+      "description": "Home appliances and kitchen items"
+    },
+    {
+      "id": 4,
+      "name": "Sports & Outdoors",
+      "slug": "sports-outdoors",
+      "description": "Sports equipment and outdoor gear"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "boAt Rockerz 450",
+      "description": "Bluetooth on-ear headphones with immersive audio",
+      "price": 1499,
+      "originalPrice": 2990,
+      "discount": 25,
+      "categoryId": 1,
+      "category": "Electronics",
+      "imageUrl": "/images/headphones.jpg",
+      "inStock": true,
+      "rating": 4.5,
+      "inventoryId": 1
+    },
+    {
+      "id": 2,
+      "name": "Fire-Boltt Ninja Call Pro",
+      "description": "Smart watch with Bluetooth calling",
+      "price": 1299,
+      "originalPrice": 1999,
+      "discount": 35,
+      "categoryId": 1,
+      "category": "Electronics",
+      "imageUrl": "/images/smartwatch.jpg",
+      "inStock": true,
+      "rating": 4.2,
+      "inventoryId": 2
+    },
+    {
+      "id": 3,
+      "name": "Canon EOS M50 Mark II",
+      "description": "Mirrorless camera with 4K video recording",
+      "price": 49999,
+      "originalPrice": 60999,
+      "discount": 17,
+      "categoryId": 1,
+      "category": "Electronics",
+      "imageUrl": "/images/camera.jpg",
+      "inStock": true,
+      "rating": 4.8,
+      "inventoryId": 3
+    },
+    {
+      "id": 4,
+      "name": "Realme Buds Air 5",
+      "description": "True wireless earbuds with ANC",
+      "price": 2299,
+      "originalPrice": 3499,
+      "discount": 34,
+      "categoryId": 1,
+      "category": "Electronics",
+      "imageUrl": "/images/earbuds.jpg",
+      "inStock": true,
+      "rating": 4.3,
+      "inventoryId": 4
+    },
+    {
+      "id": 5,
+      "name": "Men's Cotton T-Shirt",
+      "description": "Premium quality cotton t-shirt for men",
+      "price": 499,
+      "originalPrice": 999,
+      "discount": 50,
+      "categoryId": 2,
+      "category": "Fashion",
+      "imageUrl": "/images/tshirt.jpg",
+      "inStock": true,
+      "rating": 4.1,
+      "inventoryId": 5
+    },
+    {
+      "id": 6,
+      "name": "Women's Handbag",
+      "description": "Stylish leather handbag for women",
+      "price": 1299,
+      "originalPrice": 2499,
+      "discount": 48,
+      "categoryId": 2,
+      "category": "Fashion",
+      "imageUrl": "/images/handbag.jpg",
+      "inStock": true,
+      "rating": 4.6,
+      "inventoryId": 6
+    },
+    {
+      "id": 7,
+      "name": "Running Shoes",
+      "description": "Lightweight running shoes for men and women",
+      "price": 2499,
+      "originalPrice": 4999,
+      "discount": 50,
+      "categoryId": 4,
+      "category": "Sports & Outdoors",
+      "imageUrl": "/images/shoes.jpg",
+      "inStock": true,
+      "rating": 4.4,
+      "inventoryId": 7
+    },
+    {
+      "id": 8,
+      "name": "Yoga Mat",
+      "description": "Non-slip yoga mat with carrying strap",
+      "price": 799,
+      "originalPrice": 1499,
+      "discount": 47,
+      "categoryId": 4,
+      "category": "Sports & Outdoors",
+      "imageUrl": "/images/yogamat.jpg",
+      "inStock": true,
+      "rating": 4.5,
+      "inventoryId": 8
+    },
+    {
+      "id": 9,
+      "name": "Stainless Steel Water Bottle",
+      "description": "Insulated water bottle keeps drinks cold for 24 hours",
+      "price": 599,
+      "originalPrice": 999,
+      "discount": 40,
+      "categoryId": 3,
+      "category": "Home & Kitchen",
+      "imageUrl": "/images/waterbottle.jpg",
+      "inStock": true,
+      "rating": 4.7,
+      "inventoryId": 9
+    },
+    {
+      "id": 10,
+      "name": "Non-Stick Cookware Set",
+      "description": "5-piece non-stick cookware set",
+      "price": 3499,
+      "originalPrice": 6999,
+      "discount": 50,
+      "categoryId": 3,
+      "category": "Home & Kitchen",
+      "imageUrl": "/images/cookware.jpg",
+      "inStock": true,
+      "rating": 4.4,
+      "inventoryId": 10
+    }
+  ]
+  
+}
