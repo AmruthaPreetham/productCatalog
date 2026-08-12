@@ -1,6 +1,6 @@
 'use client';
 
-import { Category } from '@/types';
+import { Category } from '../app/types';
 
 interface CategoryFilterProps {
   categories: Category[];

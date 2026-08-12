@@ -5,7 +5,7 @@ import ProductCard from '@/components/ProductCard';
 import CategoryFilter from '@/components/CategoryFilter';
 import Header from '@/components/Header';
 import { getProducts, getCategories } from '@/lib/api';
-import { Product, Category } from '@/types';
+import { Product, Category } from '../app/types';
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
