@@ -26,7 +26,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         </div>
         <div className="p-4">
           <p className="text-sm text-gray-500 mb-1">{product.category}</p>
-          <h3 className="font-semibold text-lg mb-2 line-clamp-2 hover:text-blue-600">
+          <h3 className="font-semibold text-lg mb-2 line-clamp-2 hover:opacity-70 transition-opacity" style={{ color: '#1e3a8a' }}>
             {product.name}
           </h3>
           <p className="text-sm text-gray-600 mb-3 line-clamp-2">
@@ -42,7 +42,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               </span>
             )}
           </div>
-          <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+          <button className="w-full text-white py-2 px-4 rounded-lg hover:opacity-90 transition-opacity" style={{ backgroundColor: '#1e3a8a' }}>
             View Details
           </button>
         </div>

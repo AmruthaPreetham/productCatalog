@@ -105,7 +105,8 @@ export default function Home() {
             </code>
             <button 
               onClick={fetchData}
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
+              className="text-white px-6 py-2 rounded-lg hover:opacity-90"
+              style={{ backgroundColor: '#1e3a8a' }}
             >
               Retry
             </button>
@@ -137,7 +138,8 @@ export default function Home() {
                   <select 
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
-                    className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2"
+                    style={{ '--tw-ring-color': '#1e3a8a' } as React.CSSProperties}
                   >
                     <option value="default">Default</option>
                     <option value="price-low">Price: Low to High</option>
@@ -148,7 +150,7 @@ export default function Home() {
                 </div>
                 {selectedCategory && (
                   <div className="text-sm text-gray-600">
-                    Showing products in: <span className="font-semibold text-blue-600">
+                    Showing products in: <span className="font-semibold" style={{ color: '#1e3a8a' }}>
                       {categories.find(c => c.id === selectedCategory)?.name}
                     </span>
                   </div>
@@ -184,7 +186,8 @@ export default function Home() {
                       setSearchQuery('');
                       setSelectedCategory(null);
                     }}
-                    className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                    className="text-white px-6 py-2 rounded-lg hover:opacity-90 transition-colors"
+                    style={{ backgroundColor: '#1e3a8a' }}
                   >
                     Clear Filters
                   </button>

@@ -15,10 +15,9 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
         onClick={() => onPageChange(currentPage - 1)}
         disabled={!showPrevious}
         className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-          showPrevious
-            ? 'bg-blue-600 text-white hover:bg-blue-700'
-            : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+          !showPrevious ? 'bg-gray-200 text-gray-400 cursor-not-allowed' : 'text-white hover:opacity-90'
         }`}
+        style={{ backgroundColor: showPrevious ? '#1e3a8a' : undefined }}
       >
         Previous
       </button>
@@ -29,10 +28,12 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
             key={page}
             onClick={() => onPageChange(page)}
             className={`w-10 h-10 rounded-lg font-medium transition-colors ${
-              currentPage === page
-                ? 'bg-blue-600 text-white'
-                : 'bg-white text-blue-600 border border-gray-300 hover:bg-gray-50'
+              currentPage !== page ? 'border border-gray-300 hover:bg-gray-50' : ''
             }`}
+            style={{
+              backgroundColor: currentPage === page ? '#1e3a8a' : '#ffffff',
+              color: currentPage === page ? '#ffffff' : '#1e3a8a'
+            }}
           >
             {page}
           </button>
@@ -43,10 +44,9 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
         onClick={() => onPageChange(currentPage + 1)}
         disabled={!showNext}
         className={`px-4 py-2 rounded-lg font-medium transition-colors ${
-          showNext
-            ? 'bg-blue-600 text-white hover:bg-blue-700'
-            : 'bg-gray-200 text-gray-400 cursor-not-allowed'
+          !showNext ? 'bg-gray-200 text-gray-400 cursor-not-allowed' : 'text-white hover:opacity-90'
         }`}
+        style={{ backgroundColor: showNext ? '#1e3a8a' : undefined }}
       >
         Next
       </button>

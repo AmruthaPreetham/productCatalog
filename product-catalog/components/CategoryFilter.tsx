@@ -21,9 +21,13 @@ export default function CategoryFilter({ categories, selectedCategory, onCategor
           onClick={() => handleCategoryClick(null)}
           className={`w-full text-left px-4 py-2 rounded-lg transition-colors ${
             selectedCategory === null
-              ? 'bg-blue-100 text-blue-700 font-semibold'
+              ? 'font-semibold'
               : 'hover:bg-gray-100'
           }`}
+          style={{
+            backgroundColor: selectedCategory === null ? '#1e3a8a' : 'transparent',
+            color: selectedCategory === null ? '#ffffff' : '#000000'
+          }}
         >
           All Categories
         </button>
@@ -33,9 +37,13 @@ export default function CategoryFilter({ categories, selectedCategory, onCategor
             onClick={() => handleCategoryClick(category.id)}
             className={`w-full text-left px-4 py-2 rounded-lg transition-colors ${
               selectedCategory === category.id
-                ? 'bg-blue-100 text-blue-700 font-semibold'
+                ? 'font-semibold'
                 : 'hover:bg-gray-100'
             }`}
+            style={{
+              backgroundColor: selectedCategory === category.id ? '#1e3a8a' : 'transparent',
+              color: selectedCategory === category.id ? '#ffffff' : '#000000'
+            }}
           >
             {category.name}
           </button>
