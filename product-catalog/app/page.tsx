@@ -4,8 +4,11 @@ import { useEffect, useState } from 'react';
 import ProductCard from '@/components/ProductCard';
 import CategoryFilter from '@/components/CategoryFilter';
 import Header from '@/components/Header';
+import Pagination from '@/components/Pagination';
 import { getProducts, getCategories } from '@/lib/api';
 import { Product, Category } from '../app/types';
+
+const ITEMS_PER_PAGE = 6;
 
 export default function Home() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -13,12 +16,17 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
   const [sortBy, setSortBy] = useState<string>('default');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [currentPage, setCurrentPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategory, sortBy, searchQuery]);
 
   async function fetchData() {
     try {
@@ -76,6 +84,11 @@ export default function Home() {
     }
   });
 
+  const totalPages = Math.ceil(sortedProducts.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const paginatedProducts = sortedProducts.slice(startIndex, endIndex);
+
   if (error) {
     return (
       <div className="min-h-screen bg-gray-50">
@@ -105,18 +118,6 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header onSearch={setSearchQuery} initialSearchQuery={searchQuery} />
-
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-12 mb-8">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl font-bold mb-4">Mega Save On Top Brands</h1>
-            <p className="text-xl mb-6">Up to 60% Off</p>
-            <button className="bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-              Shop Now →
-            </button>
-          </div>
-        </div>
-      </div>
 
       <div className="container mx-auto px-4 py-8">
         <div className="flex gap-8">
@@ -190,11 +191,20 @@ export default function Home() {
                 )}
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {sortedProducts.map((product) => (
-                  <ProductCard key={product.id} product={product} />
-                ))}
-              </div>
+              <>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {paginatedProducts.map((product) => (
+                    <ProductCard key={product.id} product={product} />
+                  ))}
+                </div>
+                {totalPages > 1 && (
+                  <Pagination 
+                    currentPage={currentPage}
+                    totalPages={totalPages}
+                    onPageChange={setCurrentPage}
+                  />
+                )}
+              </>
             )}
           </main>
         </div>
