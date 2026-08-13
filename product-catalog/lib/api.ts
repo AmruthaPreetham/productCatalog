@@ -5,8 +5,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
  
 async function fetchWithLogging(url: string, label: string) {
   try {
-    console.log(`📡 Fetching ${label}:`, url);
-    const response = await fetch(url, {
+        const response = await fetch(url, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
