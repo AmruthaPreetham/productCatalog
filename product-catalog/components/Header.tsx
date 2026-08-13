@@ -1,6 +1,23 @@
-import Link from 'next/link';
+'use client';
 
-export default function Header() {
+import Link from 'next/link';
+import { useState } from 'react';
+
+interface HeaderProps {
+  onSearch?: (query: string) => void;
+  initialSearchQuery?: string;
+}
+
+export default function Header({ onSearch, initialSearchQuery = '' }: HeaderProps) {
+  const [searchQuery, setSearchQuery] = useState(initialSearchQuery);
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (onSearch) {
+      onSearch(searchQuery);
+    }
+  };
+
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
@@ -14,18 +31,23 @@ export default function Header() {
             <span className="text-2xl font-bold text-blue-600">ShopKart</span>
           </Link>
           
-          <div className="flex-1 max-w-2xl mx-8">
+          <form onSubmit={handleSearch} className="flex-1 max-w-2xl mx-8">
             <div className="relative">
               <input
                 type="text"
                 placeholder="Search for products, brands and more..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-              <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-1 rounded-md hover:bg-blue-700">
+              <button 
+                type="submit"
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-blue-600 text-white px-4 py-1 rounded-md hover:bg-blue-700"
+              >
                 Search
               </button>
             </div>
-          </div>
+          </form>
 
           <div className="flex items-center gap-6">
             <button className="flex flex-col items-center gap-1 hover:text-blue-600">

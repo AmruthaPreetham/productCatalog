@@ -12,6 +12,7 @@ export default function Home() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<number | null>(null);
   const [sortBy, setSortBy] = useState<string>('default');
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -39,12 +40,24 @@ export default function Home() {
   }
 
   const filteredProducts = products.filter(product => {
-    if (selectedCategory === null) return true;
-    
-    const productCategoryId = Number(product.categoryId);
-    const selectedCategoryId = Number(selectedCategory);
-    const matches = productCategoryId === selectedCategoryId;    
-    return matches;
+  
+    if (selectedCategory !== null) {
+      const productCategoryId = Number(product.categoryId);
+      const selectedCategoryId = Number(selectedCategory);
+      if (productCategoryId !== selectedCategoryId) return false;
+    }
+
+   
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      const matchesSearch = 
+        product.name.toLowerCase().includes(query) ||
+        product.description.toLowerCase().includes(query) ||
+        (product.category && product.category.toLowerCase().includes(query));
+      if (!matchesSearch) return false;
+    }
+
+    return true;
   });
 
 
@@ -91,7 +104,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
+      <Header onSearch={setSearchQuery} initialSearchQuery={searchQuery} />
 
       <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-12 mb-8">
         <div className="container mx-auto px-4">
@@ -158,16 +171,21 @@ export default function Home() {
             ) : sortedProducts.length === 0 ? (
               <div className="text-center py-12">
                 <p className="text-gray-600 text-lg mb-4">
-                  {selectedCategory 
+                  {searchQuery.trim()
+                    ? `No products found matching "${searchQuery}".`
+                    : selectedCategory 
                     ? `No products found in ${categories.find(c => c.id === selectedCategory)?.name}.`
                     : 'No products found.'}
                 </p>
-                {selectedCategory && (
+                {(searchQuery.trim() || selectedCategory) && (
                   <button
-                    onClick={() => setSelectedCategory(null)}
+                    onClick={() => {
+                      setSearchQuery('');
+                      setSelectedCategory(null);
+                    }}
                     className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
                   >
-                    View All Products
+                    Clear Filters
                   </button>
                 )}
               </div>
