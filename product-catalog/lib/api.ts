@@ -3,7 +3,7 @@ import { Product, Category } from '../app/types';
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
  
  
-async function fetchWithLogging(url: string, label: string) {
+async function fetchData(url: string, label: string) {
   try {
         const response = await fetch(url, {
       method: 'GET',
@@ -27,7 +27,7 @@ async function fetchWithLogging(url: string, label: string) {
  
 export async function getProducts(): Promise<Product[]> {
   try {
-    const data = await fetchWithLogging(`${API_BASE_URL}/products`, 'Products');
+    const data = await fetchData(`${API_BASE_URL}/products`, 'Products');
  
     const result = Array.isArray(data) ? data : Object.values(data);
     
@@ -40,7 +40,7 @@ export async function getProducts(): Promise<Product[]> {
  
 export async function getProductById(id: string): Promise<Product | null> {
   try {
-    const data = await fetchWithLogging(`${API_BASE_URL}/products/${id}`, `Product ${id}`);
+    const data = await fetchData(`${API_BASE_URL}/products/${id}`, `Product ${id}`);
     return data || null;
   } catch (error) {
    
@@ -50,7 +50,7 @@ export async function getProductById(id: string): Promise<Product | null> {
  
 export async function getCategories(): Promise<Category[]> {
   try {
-    const data = await fetchWithLogging(`${API_BASE_URL}/categories`, 'Categories');
+    const data = await fetchData(`${API_BASE_URL}/categories`, 'Categories');
     
     const result = Array.isArray(data) ? data : Object.values(data);
    
