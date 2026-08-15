@@ -1,4 +1,41 @@
 {
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@example.com",
+      "password": "123456",
+      "status": "ACTIVE"
+    },
+    {
+      "id": 2,
+      "email": "locked@example.com",
+      "password": "123456",
+      "status": "LOCKED"
+    },
+    {
+      "id": 3,
+      "email": "disabled@example.com",
+      "password": "123456",
+      "status": "DISABLED"
+    }
+  ],
+
+  "categories": [
+    {
+      "id": 1,
+      "name": "Electronics",
+      "slug": "electronics",
+      "description": "Electronic gadgets and devices"
+    }
+  ],
+
+  "products": [
+    {
+      "id": 1,
+      "name": "boAt Rockerz 450"
+    }
+  ],
+
   "categories": [
     {
       "id": 1,

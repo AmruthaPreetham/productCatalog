@@ -11,10 +11,11 @@
   },
   "dependencies": {
     "json-server": "^1.0.0-beta.15",
-    "next": "16.3.0",
-    "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
   },
+
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
