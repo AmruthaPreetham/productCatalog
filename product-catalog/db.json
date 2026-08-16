@@ -1,62 +1,45 @@
 {
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "email": "admin@example.com",
       "password": "123456",
       "status": "ACTIVE"
     },
     {
-      "id": 2,
+      "id": "2",
       "email": "locked@example.com",
       "password": "123456",
       "status": "LOCKED"
     },
     {
-      "id": 3,
+      "id": "3",
       "email": "disabled@example.com",
       "password": "123456",
       "status": "DISABLED"
     }
   ],
-
   "categories": [
     {
-      "id": 1,
-      "name": "Electronics",
-      "slug": "electronics",
-      "description": "Electronic gadgets and devices"
-    }
-  ],
-
-  "products": [
-    {
-      "id": 1,
-      "name": "boAt Rockerz 450"
-    }
-  ],
-
-  "categories": [
-    {
-      "id": 1,
+      "id": "1",
       "name": "Electronics",
       "slug": "electronics",
       "description": "Electronic gadgets and devices"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Fashion",
       "slug": "fashion",
       "description": "Clothing and accessories"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Home & Kitchen",
       "slug": "home-kitchen",
       "description": "Home appliances and kitchen items"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Sports & Outdoors",
       "slug": "sports-outdoors",
       "description": "Sports equipment and outdoor gear"
@@ -64,7 +47,7 @@
   ],
   "products": [
     {
-      "id": 1,
+      "id": "1",
       "name": "boAt Rockerz 450",
       "description": "Bluetooth on-ear headphones with immersive audio",
       "price": 1499,
@@ -78,7 +61,7 @@
       "inventoryId": 1
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Fire-Boltt Ninja Call Pro",
       "description": "Smart watch with Bluetooth calling",
       "price": 1299,
@@ -92,7 +75,7 @@
       "inventoryId": 2
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Canon EOS M50 Mark II",
       "description": "Mirrorless camera with 4K video recording",
       "price": 49999,
@@ -106,7 +89,7 @@
       "inventoryId": 3
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Realme Buds Air 5",
       "description": "True wireless earbuds with ANC",
       "price": 2299,
@@ -120,7 +103,7 @@
       "inventoryId": 4
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Men's Cotton T-Shirt",
       "description": "Premium quality cotton t-shirt for men",
       "price": 499,
@@ -134,7 +117,7 @@
       "inventoryId": 5
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Women's Handbag",
       "description": "Stylish leather handbag for women",
       "price": 1299,
@@ -148,7 +131,7 @@
       "inventoryId": 6
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Running Shoes",
       "description": "Lightweight running shoes for men and women",
       "price": 2499,
@@ -162,7 +145,7 @@
       "inventoryId": 7
     },
     {
-      "id": 8,
+      "id": "8",
       "name": "Yoga Mat",
       "description": "Non-slip yoga mat with carrying strap",
       "price": 799,
@@ -176,7 +159,7 @@
       "inventoryId": 8
     },
     {
-      "id": 9,
+      "id": "9",
       "name": "Stainless Steel Water Bottle",
       "description": "Insulated water bottle keeps drinks cold for 24 hours",
       "price": 599,
@@ -190,7 +173,7 @@
       "inventoryId": 9
     },
     {
-      "id": 10,
+      "id": "10",
       "name": "Non-Stick Cookware Set",
       "description": "5-piece non-stick cookware set",
       "price": 3499,
@@ -203,6 +186,6 @@
       "rating": 4.4,
       "inventoryId": 10
     }
-  ]
-  
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

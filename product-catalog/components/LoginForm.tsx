@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebook } from "react-icons/fa";
+import { FaMicrosoft } from "react-icons/fa6";
+import { signIn } from "next-auth/react";
 export default function LoginForm() {
   const router = useRouter();
 
@@ -88,6 +91,22 @@ export default function LoginForm() {
     }
   };
 
+const handleSocialLogin = (provider: string) => {
+  const user = {
+    id: Date.now(),
+    name: `${provider} User`,
+    email: `${provider.toLowerCase()}@demo.com`,
+    provider,
+  };
+
+  localStorage.setItem(
+    "user",
+    JSON.stringify(user)
+  );
+
+  router.push("/products");
+};
+
   return (
    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
      <div className="bg-white rounded-3xl shadow-2xl overflow-hidden w-full max-w-5xl grid md:grid-cols-2">
@@ -166,6 +185,54 @@ export default function LoginForm() {
            >
              {loading ? "Signing In..." : "Login"}
            </button>
+
+<div className="my-6 flex items-center">
+  <div className="flex-1 border-t border-gray-300"></div>
+  <span className="px-4 text-gray-500 text-sm">OR</span>
+  <div className="flex-1 border-t border-gray-300"></div>
+</div>
+
+<div className="flex justify-center gap-5">
+  <button
+    type="button"
+    className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:shadow-md hover:scale-105 transition"
+
+     onClick={() => handleSocialLogin("Google")}>
+    <FcGoogle size={24}/>
+  </button>
+
+  <button
+    type="button"
+    className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:shadow-md hover:scale-105 transition"
+  onClick={() => handleSocialLogin("facebook")}
+  >
+    <FaFacebook size={22} color="#1877F2" />
+  </button>
+
+  <button
+    type="button"
+    className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center hover:shadow-md hover:scale-105 transition"
+  onClick={() => handleSocialLogin("mocrosoft")}>
+    <FaMicrosoft size={20} color="#00A4EF" />
+  </button>
+</div>
+
+<p className="text-center text-sm text-gray-500 mt-3">
+  Continue with social account
+</p>
+           `<div className="mt-6 text-center">
+              <span className="text-gray-600">
+                Don't have an account?
+              </span>
+
+              <button
+                type="button"
+                onClick={() => router.push("/signup")}
+                className="ml-2 font-semibold hover:underline" style={{ color: "#1e3a8a" }}
+              >
+                Sign Up
+              </button>
+            </div>
          </form>
        </div>
      </div>
