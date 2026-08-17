@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { API_BASE_URL } from "@/lib/config";
 
 export async function POST(request: Request) {
   try {
@@ -17,7 +18,7 @@ export async function POST(request: Request) {
     }
 
     const response = await fetch(
-      `http://localhost:3001/users?email=${email}`
+      `${API_BASE_URL}/users?email=${email}`
     );
 
     const users = await response.json();

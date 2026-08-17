@@ -1,7 +1,5 @@
 import { Product, Category } from '../app/types';
- 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
- 
+import { API_BASE_URL } from './config';
  
 async function fetchData(url: string, label: string) {
   try {

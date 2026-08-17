@@ -1,6 +1,7 @@
 'use client';
 
 import { Category } from '../app/types';
+import { TEXT } from '@/lib/text-constants';
 
 interface CategoryFilterProps {
   categories: Category[];
@@ -15,7 +16,7 @@ export default function CategoryFilter({ categories, selectedCategory, onCategor
 
   return (
     <div className="bg-white rounded-lg shadow-md p-4">
-      <h3 className="font-bold text-lg mb-4">CATEGORIES</h3>
+      <h3 className="font-bold text-lg mb-4">{TEXT.CATEGORIES.TITLE}</h3>
       <div className="space-y-2">
         <button
           onClick={() => handleCategoryClick(null)}
@@ -29,7 +30,7 @@ export default function CategoryFilter({ categories, selectedCategory, onCategor
             color: selectedCategory === null ? '#ffffff' : '#000000'
           }}
         >
-          All Categories
+          {TEXT.CATEGORIES.ALL_CATEGORIES}
         </button>
         {categories.map((category) => (
           <button
