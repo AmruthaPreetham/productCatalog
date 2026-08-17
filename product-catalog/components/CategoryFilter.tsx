@@ -15,40 +15,43 @@ export default function CategoryFilter({ categories, selectedCategory, onCategor
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-4">
-      <h3 className="font-bold text-lg mb-4">{TEXT.CATEGORIES.TITLE}</h3>
-      <div className="space-y-2">
+    <div className="bg-white rounded-lg shadow-md p-6">
+      <h3 className="font-bold text-lg mb-6 uppercase tracking-wide" style={{ color: '#1e3a8a' }}>
+        {TEXT.CATEGORIES.TITLE}
+      </h3>
+      <div className="space-y-3">
         <button
           onClick={() => handleCategoryClick(null)}
-          className={`w-full text-left px-4 py-2 rounded-lg transition-colors ${
+          className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 font-semibold ${
             selectedCategory === null
-              ? 'font-semibold'
-              : 'hover:bg-gray-100'
+              ? 'text-white shadow-lg'
+              : 'text-gray-700 hover:bg-gray-50'
           }`}
           style={{
-            backgroundColor: selectedCategory === null ? '#1e3a8a' : 'transparent',
-            color: selectedCategory === null ? '#ffffff' : '#000000'
+            backgroundColor: selectedCategory === null ? '#1e3a8a' : 'transparent'
           }}
         >
           {TEXT.CATEGORIES.ALL_CATEGORIES}
         </button>
-        {categories.map((category) => (
-          <button
-            key={category.id}
-            onClick={() => handleCategoryClick(category.id)}
-            className={`w-full text-left px-4 py-2 rounded-lg transition-colors ${
-              selectedCategory === category.id
-                ? 'font-semibold'
-                : 'hover:bg-gray-100'
-            }`}
-            style={{
-              backgroundColor: selectedCategory === category.id ? '#1e3a8a' : 'transparent',
-              color: selectedCategory === category.id ? '#ffffff' : '#000000'
-            }}
-          >
-            {category.name}
-          </button>
-        ))}
+        {categories.map((category) => {
+          const isSelected = Number(selectedCategory) === Number(category.id);          
+          return (
+            <button
+              key={category.id}
+              onClick={() => handleCategoryClick(category.id)}
+              className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 font-semibold ${
+                isSelected
+                  ? 'text-white shadow-lg'
+                  : 'text-gray-700 hover:bg-gray-50'
+              }`}
+              style={{
+                backgroundColor: isSelected ? '#1e3a8a' : 'transparent'
+              }}
+            >
+              {category.name}
+            </button>
+          );
+        })}
       </div>
     </div>
   );

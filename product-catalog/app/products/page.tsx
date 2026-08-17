@@ -1,5 +1,5 @@
 'use client';
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from 'react';
 import ProductCard from '@/components/ProductCard';
 import CategoryFilter from '@/components/CategoryFilter';
@@ -20,6 +20,7 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
+  const searchParams = useSearchParams();
 const handleLogout = () => {
   // Remove logged-in user data
   localStorage.removeItem("user");
@@ -39,8 +40,14 @@ const handleLogout = () => {
       return;
     }
 
+    const categoryParam = searchParams.get('category');
+    if (categoryParam) {
+      const categoryId = Number(categoryParam);
+      setSelectedCategory(categoryId);
+    }
+
     fetchData();
-  }, [router]);
+  }, [router, searchParams]);
 
   useEffect(() => {
     setCurrentPage(1);
@@ -149,6 +156,7 @@ Logout
         <div className="flex gap-8">
           <aside className="w-64 flex-shrink-0">
             <CategoryFilter 
+              key={selectedCategory}
               categories={categories}
               selectedCategory={selectedCategory}
               onCategoryChange={setSelectedCategory}
