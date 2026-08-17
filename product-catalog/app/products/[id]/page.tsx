@@ -411,6 +411,7 @@ export default function ProductDetailsPage() {
           <RelatedProducts 
             products={allProducts} 
             currentProductId={product.id}
+            categoryId={product.categoryId}
             limit={4}
           />
         )}

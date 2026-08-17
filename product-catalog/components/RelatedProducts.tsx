@@ -5,16 +5,18 @@ import { Product } from '../app/types';
 interface RelatedProductsProps {
   products: Product[];
   currentProductId: number;
+  categoryId?: number;
   limit?: number;
 }
 
 export default function RelatedProducts({ 
   products, 
-  currentProductId, 
+  currentProductId,
+  categoryId,
   limit = 4 
 }: RelatedProductsProps) {
   const relatedProducts = products
-    .filter(p => p.id !== currentProductId)
+    .filter(p => p.id !== currentProductId && (categoryId ? p.categoryId === categoryId : true))
     .slice(0, limit);
 
   if (relatedProducts.length === 0) {
