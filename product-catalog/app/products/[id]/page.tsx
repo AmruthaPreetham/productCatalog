@@ -292,118 +292,113 @@ export default function ProductDetailsPage() {
                 Add to Wishlist
               </button>
             </div>
-
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h3 className="text-lg font-semibold mb-4" style={{ color: '#1e3a8a' }}>
-                Key Highlights
-              </h3>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span className="text-gray-700">Premium Quality Product</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span className="text-gray-700">Fast Shipping Available</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span className="text-gray-700">Easy Returns</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                  </svg>
-                  <span className="text-gray-700">Genuine Product Guarantee</span>
-                </li>
-              </ul>
-            </div>
           </div>
         </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2">
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-2xl font-bold mb-4" style={{ color: '#1e3a8a' }}>
-                Description
-              </h2>
-              <p className="text-gray-700 leading-relaxed mb-6">
-                {product.description}
-              </p>
-              
-              <h3 className="text-lg font-semibold mb-4" style={{ color: '#1e3a8a' }}>
-                Product Details
-              </h3>
-              <div className="space-y-3">
-                <div className="flex justify-between py-2 border-b border-gray-200">
-                  <span className="text-gray-600">Product ID</span>
-                  <span className="font-semibold text-gray-900">#{product.id}</span>
-                </div>
-                <div className="flex justify-between py-2 border-b border-gray-200">
-                  <span className="text-gray-600">Category</span>
-                  <span className="font-semibold text-gray-900">{product.category}</span>
-                </div>
-                <div className="flex justify-between py-2">
-                  <span className="text-gray-600">Availability</span>
-                  <span className={`font-semibold ${product.inStock ? 'text-green-600' : 'text-red-600'}`}>
-                    {product.inStock ? 'In Stock' : 'Out of Stock'}
-                  </span>
-                </div>
+        <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <h2 className="text-2xl font-bold mb-4" style={{ color: '#1e3a8a' }}>
+              Description
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              {product.description}
+            </p>
+            
+            <h3 className="text-lg font-semibold mb-4" style={{ color: '#1e3a8a' }}>
+              Product Details
+            </h3>
+            <div className="space-y-3">
+              <div className="flex justify-between py-2 border-b border-gray-200">
+                <span className="text-gray-600">Product ID</span>
+                <span className="font-semibold text-gray-900">#{product.id}</span>
+              </div>
+              <div className="flex justify-between py-2 border-b border-gray-200">
+                <span className="text-gray-600">Category</span>
+                <span className="font-semibold text-gray-900">{product.category}</span>
+              </div>
+              <div className="flex justify-between py-2">
+                <span className="text-gray-600">Availability</span>
+                <span className={`font-semibold ${product.inStock ? 'text-green-600' : 'text-red-600'}`}>
+                  {product.inStock ? 'In Stock' : 'Out of Stock'}
+                </span>
               </div>
             </div>
           </div>
 
-          <div className="space-y-6">
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h3 className="text-lg font-semibold mb-4 flex items-center gap-2" style={{ color: '#1e3a8a' }}>
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+          <div className="bg-white rounded-lg shadow-md p-6">
+            <h3 className="text-lg font-semibold mb-4" style={{ color: '#1e3a8a' }}>
+              Key Highlights
+            </h3>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                Delivery Info
-              </h3>
-              <div className="space-y-3 text-sm text-gray-700">
-                <div>
-                  <p className="font-semibold mb-1">Free Delivery</p>
-                  <p className="text-gray-600">Ships in 2-3 days</p>
-                </div>
-              </div>
+                <span className="text-gray-700">Premium Quality Product</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-gray-700">Fast Shipping Available</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-gray-700">Easy Returns</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                </svg>
+                <span className="text-gray-700">Genuine Product Guarantee</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="bg-white rounded-lg shadow-md p-6 text-center">
+            <div className="flex justify-center mb-4">
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#1e3a8a' }}>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+              </svg>
             </div>
+            <h4 className="font-semibold mb-2" style={{ color: '#1e3a8a' }}>Delivery Info</h4>
+            <p className="text-sm text-gray-600">Free Delivery</p>
+            <p className="text-sm text-gray-600">Ships in 2-3 days</p>
+          </div>
 
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h3 className="text-lg font-semibold mb-4 flex items-center gap-2" style={{ color: '#1e3a8a' }}>
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                Return Policy
-              </h3>
-              <div className="space-y-3 text-sm text-gray-700">
-                <div>
-                  <p className="font-semibold mb-1">Easy Returns</p>
-                  <p className="text-gray-600">30-day return window</p>
-                </div>
-              </div>
+          <div className="bg-white rounded-lg shadow-md p-6 text-center">
+            <div className="flex justify-center mb-4">
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#1e3a8a' }}>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
             </div>
+            <h4 className="font-semibold mb-2" style={{ color: '#1e3a8a' }}>Return Policy</h4>
+            <p className="text-sm text-gray-600">Easy Returns</p>
+            <p className="text-sm text-gray-600">30-day return window</p>
+          </div>
 
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h3 className="text-lg font-semibold mb-4 flex items-center gap-2" style={{ color: '#1e3a8a' }}>
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                Best Price
-              </h3>
-              <div className="space-y-3 text-sm text-gray-700">
-                <div>
-                  <p className="font-semibold mb-1">Price Match Guarantee</p>
-                  <p className="text-gray-600">Lowest price available</p>
-                </div>
-              </div>
+          <div className="bg-white rounded-lg shadow-md p-6 text-center">
+            <div className="flex justify-center mb-4">
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#1e3a8a' }}>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
             </div>
+            <h4 className="font-semibold mb-2" style={{ color: '#1e3a8a' }}>Best Price</h4>
+            <p className="text-sm text-gray-600">Price Match Guarantee</p>
+            <p className="text-sm text-gray-600">Lowest price available</p>
+          </div>
+
+          <div className="bg-white rounded-lg shadow-md p-6 text-center">
+            <div className="flex justify-center mb-4">
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: '#1e3a8a' }}>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h4 className="font-semibold mb-2" style={{ color: '#1e3a8a' }}>Quality Assurance</h4>
+            <p className="text-sm text-gray-600">Genuine Product</p>
+            <p className="text-sm text-gray-600">Guarantee</p>
           </div>
         </div>
 
