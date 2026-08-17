@@ -8,6 +8,7 @@ import RelatedProducts from '@/components/RelatedProducts';
 import { getProductById, getProducts } from '@/lib/api';
 import { Product } from '@/app/types';
 import Link from 'next/link';
+import { TEXT } from '@/lib/text-constants';
 
 export default function ProductDetailsPage() {
   const router = useRouter();
@@ -144,7 +145,7 @@ export default function ProductDetailsPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8 flex items-center gap-2 text-sm text-gray-600">
           <Link href="/products" className="hover:text-gray-900 transition-colors">
-            Products
+            {TEXT.PRODUCT_DETAILS.BREADCRUMB.PRODUCTS}
           </Link>
           <span>{'>'}</span>
           <Link href={`/products?category=${product.categoryId}`} className="hover:text-gray-900 transition-colors">
@@ -203,7 +204,7 @@ export default function ProductDetailsPage() {
                 ))}
               </div>
               <span className="text-sm text-gray-600">
-                {product.rating} ({Math.floor(Math.random() * 5000) + 1000} reviews)
+                {product.rating} ({Math.floor(Math.random() * 5000) + 1000} {TEXT.PRODUCT_DETAILS.RATING_REVIEWS})
               </span>
             </div>
 
@@ -230,12 +231,12 @@ export default function ProductDetailsPage() {
                 {product.inStock ? (
                   <>
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                    <span className="text-green-700 font-semibold">In Stock</span>
+                    <span className="text-green-700 font-semibold">{TEXT.PRODUCT_DETAILS.AVAILABILITY.IN_STOCK}</span>
                   </>
                 ) : (
                   <>
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                    <span className="text-red-700 font-semibold">Out of Stock</span>
+                    <span className="text-red-700 font-semibold">{TEXT.PRODUCT_DETAILS.AVAILABILITY.OUT_OF_STOCK}</span>
                   </>
                 )}
               </div>
@@ -243,7 +244,7 @@ export default function ProductDetailsPage() {
               {product.inStock && (
                 <div className="mb-6">
                   <label className="block text-sm font-semibold text-gray-700 mb-2">
-                    Quantity
+                    {TEXT.PRODUCT_DETAILS.QUANTITY.LABEL}
                   </label>
                   <div className="flex items-center border border-gray-300 rounded-lg w-fit">
                     <button
@@ -257,7 +258,7 @@ export default function ProductDetailsPage() {
                       value={quantity}
                       onChange={(e) => handleQuantityChange(parseInt(e.target.value) || 1)}
                       className="w-16 text-center border-l border-r border-gray-300 py-2 focus:outline-none"
-                      min="1"
+                      min={TEXT.PRODUCT_DETAILS.QUANTITY.MIN}
                     />
                     <button
                       onClick={() => handleQuantityChange(quantity + 1)}
@@ -279,17 +280,17 @@ export default function ProductDetailsPage() {
                 }`}
                 style={{ backgroundColor: product.inStock ? '#1e3a8a' : '#9ca3af' }}
               >
-                {product.inStock ? 'Add to Cart' : 'Out of Stock'}
+                {product.inStock ? TEXT.PRODUCT_DETAILS.BUTTONS.ADD_TO_CART : TEXT.PRODUCT_DETAILS.BUTTONS.OUT_OF_STOCK}
               </button>
 
               {addedToCart && (
                 <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg text-center font-semibold">
-                  ✓ Added to cart successfully!
+                  {TEXT.PRODUCT_DETAILS.FEEDBACK.ADDED_TO_CART}
                 </div>
               )}
 
               <button className="w-full py-3 px-6 rounded-lg font-semibold border-2 transition-colors" style={{ borderColor: '#1e3a8a', color: '#1e3a8a' }}>
-                Add to Wishlist
+                {TEXT.PRODUCT_DETAILS.BUTTONS.ADD_TO_WISHLIST}
               </button>
             </div>
           </div>
@@ -297,28 +298,28 @@ export default function ProductDetailsPage() {
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="bg-white rounded-lg shadow-md p-6">
             <h2 className="text-2xl font-bold mb-4" style={{ color: '#1e3a8a' }}>
-              Description
+              {TEXT.PRODUCT_DETAILS.DESCRIPTION.TITLE}
             </h2>
             <p className="text-gray-700 leading-relaxed mb-6">
               {product.description}
             </p>
             
             <h3 className="text-lg font-semibold mb-4" style={{ color: '#1e3a8a' }}>
-              Product Details
+              {TEXT.PRODUCT_DETAILS.DESCRIPTION.PRODUCT_DETAILS}
             </h3>
             <div className="space-y-3">
               <div className="flex justify-between py-2 border-b border-gray-200">
-                <span className="text-gray-600">Product ID</span>
+                <span className="text-gray-600">{TEXT.PRODUCT_DETAILS.DESCRIPTION.PRODUCT_ID}</span>
                 <span className="font-semibold text-gray-900">#{product.id}</span>
               </div>
               <div className="flex justify-between py-2 border-b border-gray-200">
-                <span className="text-gray-600">Category</span>
+                <span className="text-gray-600">{TEXT.PRODUCT_DETAILS.DESCRIPTION.CATEGORY}</span>
                 <span className="font-semibold text-gray-900">{product.category}</span>
               </div>
               <div className="flex justify-between py-2">
-                <span className="text-gray-600">Availability</span>
+                <span className="text-gray-600">{TEXT.PRODUCT_DETAILS.DESCRIPTION.AVAILABILITY}</span>
                 <span className={`font-semibold ${product.inStock ? 'text-green-600' : 'text-red-600'}`}>
-                  {product.inStock ? 'In Stock' : 'Out of Stock'}
+                  {product.inStock ? TEXT.PRODUCT_DETAILS.AVAILABILITY.IN_STOCK : TEXT.PRODUCT_DETAILS.AVAILABILITY.OUT_OF_STOCK}
                 </span>
               </div>
             </div>
@@ -326,32 +327,32 @@ export default function ProductDetailsPage() {
 
           <div className="bg-white rounded-lg shadow-md p-6">
             <h3 className="text-lg font-semibold mb-4" style={{ color: '#1e3a8a' }}>
-              Key Highlights
+              {TEXT.PRODUCT_DETAILS.KEY_HIGHLIGHTS.TITLE}
             </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-gray-700">Premium Quality Product</span>
+                <span className="text-gray-700">{TEXT.PRODUCT_DETAILS.KEY_HIGHLIGHTS.PREMIUM_QUALITY}</span>
               </li>
               <li className="flex items-start gap-3">
                 <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-gray-700">Fast Shipping Available</span>
+                <span className="text-gray-700">{TEXT.PRODUCT_DETAILS.KEY_HIGHLIGHTS.FAST_SHIPPING}</span>
               </li>
               <li className="flex items-start gap-3">
                 <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-gray-700">Easy Returns</span>
+                <span className="text-gray-700">{TEXT.PRODUCT_DETAILS.KEY_HIGHLIGHTS.EASY_RETURNS}</span>
               </li>
               <li className="flex items-start gap-3">
                 <svg className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-gray-700">Genuine Product Guarantee</span>
+                <span className="text-gray-700">{TEXT.PRODUCT_DETAILS.KEY_HIGHLIGHTS.GENUINE_GUARANTEE}</span>
               </li>
             </ul>
           </div>
@@ -363,9 +364,9 @@ export default function ProductDetailsPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
               </svg>
             </div>
-            <h4 className="font-semibold mb-2" style={{ color: '#1e3a8a' }}>Delivery Info</h4>
-            <p className="text-sm text-gray-600">Free Delivery</p>
-            <p className="text-sm text-gray-600">Ships in 2-3 days</p>
+            <h4 className="font-semibold mb-2" style={{ color: '#1e3a8a' }}>{TEXT.PRODUCT_DETAILS.INFO_CARDS.DELIVERY_INFO.TITLE}</h4>
+            <p className="text-sm text-gray-600">{TEXT.PRODUCT_DETAILS.INFO_CARDS.DELIVERY_INFO.FREE_DELIVERY}</p>
+            <p className="text-sm text-gray-600">{TEXT.PRODUCT_DETAILS.INFO_CARDS.DELIVERY_INFO.SHIPS_IN}</p>
           </div>
 
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
@@ -374,9 +375,9 @@ export default function ProductDetailsPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h4 className="font-semibold mb-2" style={{ color: '#1e3a8a' }}>Return Policy</h4>
-            <p className="text-sm text-gray-600">Easy Returns</p>
-            <p className="text-sm text-gray-600">30-day return window</p>
+            <h4 className="font-semibold mb-2" style={{ color: '#1e3a8a' }}>{TEXT.PRODUCT_DETAILS.INFO_CARDS.RETURN_POLICY.TITLE}</h4>
+            <p className="text-sm text-gray-600">{TEXT.PRODUCT_DETAILS.INFO_CARDS.RETURN_POLICY.EASY_RETURNS}</p>
+            <p className="text-sm text-gray-600">{TEXT.PRODUCT_DETAILS.INFO_CARDS.RETURN_POLICY.RETURN_WINDOW}</p>
           </div>
 
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
@@ -385,9 +386,9 @@ export default function ProductDetailsPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h4 className="font-semibold mb-2" style={{ color: '#1e3a8a' }}>Best Price</h4>
-            <p className="text-sm text-gray-600">Price Match Guarantee</p>
-            <p className="text-sm text-gray-600">Lowest price available</p>
+            <h4 className="font-semibold mb-2" style={{ color: '#1e3a8a' }}>{TEXT.PRODUCT_DETAILS.INFO_CARDS.BEST_PRICE.TITLE}</h4>
+            <p className="text-sm text-gray-600">{TEXT.PRODUCT_DETAILS.INFO_CARDS.BEST_PRICE.PRICE_GUARANTEE}</p>
+            <p className="text-sm text-gray-600">{TEXT.PRODUCT_DETAILS.INFO_CARDS.BEST_PRICE.LOWEST_PRICE}</p>
           </div>
 
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
@@ -396,9 +397,9 @@ export default function ProductDetailsPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
             </div>
-            <h4 className="font-semibold mb-2" style={{ color: '#1e3a8a' }}>Quality Assurance</h4>
-            <p className="text-sm text-gray-600">Genuine Product</p>
-            <p className="text-sm text-gray-600">Guarantee</p>
+            <h4 className="font-semibold mb-2" style={{ color: '#1e3a8a' }}>{TEXT.PRODUCT_DETAILS.INFO_CARDS.QUALITY_ASSURANCE.TITLE}</h4>
+            <p className="text-sm text-gray-600">{TEXT.PRODUCT_DETAILS.INFO_CARDS.QUALITY_ASSURANCE.GENUINE_PRODUCT}</p>
+            <p className="text-sm text-gray-600">{TEXT.PRODUCT_DETAILS.INFO_CARDS.QUALITY_ASSURANCE.GUARANTEE}</p>
           </div>
         </div>
 
@@ -417,7 +418,7 @@ export default function ProductDetailsPage() {
             className="inline-block text-white px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
             style={{ backgroundColor: '#1e3a8a' }}
           >
-            ← Back to Products
+            {TEXT.PRODUCT_DETAILS.BREADCRUMB.BACK_TO_PRODUCTS}
           </Link>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Product } from '../app/types';
+import { TEXT } from '@/lib/text-constants';
 
 interface RelatedProductsProps {
   products: Product[];
@@ -26,7 +27,7 @@ export default function RelatedProducts({
   return (
     <section className="mt-12">
       <h2 className="text-2xl font-bold mb-6" style={{ color: '#1e3a8a' }}>
-        Related Products
+        {TEXT.PRODUCT_DETAILS.RELATED_PRODUCTS.TITLE}
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {relatedProducts.map(product => (

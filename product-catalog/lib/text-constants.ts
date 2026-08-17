@@ -123,4 +123,72 @@ export const TEXT = {
     PREVIOUS: 'Previous',
     NEXT: 'Next',
   },
+
+  // Product Details Page
+  PRODUCT_DETAILS: {
+    BREADCRUMB: {
+      PRODUCTS: 'Products',
+      BACK_TO_PRODUCTS: '← Back to Products',
+    },
+    RATING_REVIEWS: 'reviews',
+    PRICE_SECTION: {
+      SAVE: 'Save',
+      ORIGINAL_PRICE: 'Original Price',
+    },
+    AVAILABILITY: {
+      IN_STOCK: 'In Stock',
+      OUT_OF_STOCK: 'Out of Stock',
+    },
+    QUANTITY: {
+      LABEL: 'Quantity',
+      MIN: '1',
+    },
+    BUTTONS: {
+      ADD_TO_CART: 'Add to Cart',
+      OUT_OF_STOCK: 'Out of Stock',
+      ADD_TO_WISHLIST: 'Add to Wishlist',
+    },
+    FEEDBACK: {
+      ADDED_TO_CART: '✓ Added to cart successfully!',
+    },
+    KEY_HIGHLIGHTS: {
+      TITLE: 'Key Highlights',
+      PREMIUM_QUALITY: 'Premium Quality Product',
+      FAST_SHIPPING: 'Fast Shipping Available',
+      EASY_RETURNS: 'Easy Returns',
+      GENUINE_GUARANTEE: 'Genuine Product Guarantee',
+    },
+    DESCRIPTION: {
+      TITLE: 'Description',
+      PRODUCT_DETAILS: 'Product Details',
+      PRODUCT_ID: 'Product ID',
+      CATEGORY: 'Category',
+      AVAILABILITY: 'Availability',
+    },
+    INFO_CARDS: {
+      DELIVERY_INFO: {
+        TITLE: 'Delivery Info',
+        FREE_DELIVERY: 'Free Delivery',
+        SHIPS_IN: 'Ships in 2-3 days',
+      },
+      RETURN_POLICY: {
+        TITLE: 'Return Policy',
+        EASY_RETURNS: 'Easy Returns',
+        RETURN_WINDOW: '30-day return window',
+      },
+      BEST_PRICE: {
+        TITLE: 'Best Price',
+        PRICE_GUARANTEE: 'Price Match Guarantee',
+        LOWEST_PRICE: 'Lowest price available',
+      },
+      QUALITY_ASSURANCE: {
+        TITLE: 'Quality Assurance',
+        GENUINE_PRODUCT: 'Genuine Product',
+        GUARANTEE: 'Guarantee',
+      },
+    },
+    RELATED_PRODUCTS: {
+      TITLE: 'Related Products',
+    },
+  },
 } as const;
