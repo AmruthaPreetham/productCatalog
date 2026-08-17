@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { API_BASE_URL } from "@/lib/config";
 
 export default function SignupForm() {
   const router = useRouter();
@@ -124,7 +125,7 @@ if (!validateForm()) {
 
       // Check existing email
       const checkResponse = await fetch(
-        `http://localhost:3001/users?email=${email}`
+        `${API_BASE_URL}/users?email=${email}`
       );
 
       const existingUsers =
@@ -139,7 +140,7 @@ if (!validateForm()) {
 
       // Save user in json-server
       const response = await fetch(
-        "http://localhost:3001/users",
+        `${API_BASE_URL}/users`,
         {
           method: "POST",
           headers: {
