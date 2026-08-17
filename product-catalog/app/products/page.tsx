@@ -6,7 +6,7 @@ import CategoryFilter from '@/components/CategoryFilter';
 import Header from '@/components/Header';
 import Pagination from '@/components/Pagination';
 import { getProducts, getCategories } from '@/lib/api';
-import { Product, Category } from '../app/types';
+import { Product, Category } from '@/app/types';
 
 const ITEMS_PER_PAGE = 6;
 
