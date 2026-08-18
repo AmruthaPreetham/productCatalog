@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import Image from 'next/image';
 import Header from '@/components/Header';
@@ -21,6 +21,10 @@ export default function ProductDetailsPage() {
   const [error, setError] = useState<string | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [addedToCart, setAddedToCart] = useState(false);
+
+  const reviewCount = useMemo(() => {
+    return Math.floor(Math.random() * 5000) + 1000;
+  }, [productId]);
 
   useEffect(() => {
     const user = localStorage.getItem('user');
@@ -204,7 +208,7 @@ export default function ProductDetailsPage() {
                 ))}
               </div>
               <span className="text-sm text-gray-600">
-                {product.rating} ({Math.floor(Math.random() * 5000) + 1000} {TEXT.PRODUCT_DETAILS.RATING_REVIEWS})
+                {product.rating} ({reviewCount} {TEXT.PRODUCT_DETAILS.RATING_REVIEWS})
               </span>
             </div>
 
