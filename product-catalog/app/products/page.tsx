@@ -146,11 +146,6 @@ const handleLogout = () => {
       <Header onSearch={setSearchQuery} initialSearchQuery={searchQuery} />
 <div className="flex justify-end p-4">
 
-<button onClick={handleLogout} className="bg-red-500 text-white px-4 py-2 rounded">
-
-Logout
-
-</button>
 </div>
       <div className="container mx-auto px-4 py-8">
         <div className="flex gap-8">
